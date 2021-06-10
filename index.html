@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+*{
+    padding: 0;
+    margin: 0;
+}
+.head{
+    background-color: black;
+}
+.icon-1 img{
+    margin-top: 10px;
+    margin-left: 60px;
+    height: 60px;
+    width: 100px;
+}
+.nav{
+    margin-top: -55px;
+    margin-left: 180px;
+}
+.nav li{
+    height: 50px;
+    list-style: none;
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.search{
+    margin-left: 20px;
+}
+
+.music{
+	width: 100%;
+	height: 500px;
+}
+.xiyangyang{
+	margin-left: 800px;
+	margin-top: 50px;
+    width: 13em;
+    height: 13em;
+    border-radius: 50%;
+    animation:rotateImg 5s;
+    animation-iteration-count:infinite;
+    -webkit-animation:rotateImg 5s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+@keyframes rotateImg {
+    0% {transform : rotate(0deg);}
+    100% {transform : rotate(360deg);}
+}
+  
+@-webkit-keyframes rotateImg {
+    0%{-webkit-transform : rotate(0deg);}
+    100%{-webkit-transform : rotate(360deg);}
+}
+
+
+#player{
+	width: 400px;
+	height: 60px;
+	margin-left: 750px;
+	background-color: rgb(128, 126, 126);
+}
+
+.musicControll {
+	float: left;
+	margin-left: 24px;
+	display: inline;
+}
+
+.musicControll div {
+	float: left;
+	margin: 10px 0 0 17px;
+	cursor: pointer;
+	display: inline;
+}
+
+/*播放按钮*/
+.musicControll .play{
+	width: 40px;
+	height: 40px;
+	background: url(./images/all.png);
+	background-position: -137px -113px;
+}
+
+.musicControll .play:hover {
+	background-position: -137px -194px;
+}
+
+/*进度条*/
+.playerMid {
+	float: left;
+	width: 200px;
+	height: 60px;
+	margin-top: 20px;
+	margin-left: 20px;
+	overflow: hidden;
+	position: relative;
+}
+
+.playerMid #wp_text {
+	font-size: 14px;
+	color: rgb(78, 78, 78);
+	margin-top: 9px;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.playerMid #wp_text span {
+	color: rgb(78, 78, 78);
+}
+
+.playerMid #prograssBar {
+	float: left;
+	position: relative;
+	width: 100%;
+	height: 4px;
+	background: url(./images/prograssBg.png);
+	margin: 10px 10px 0 0;
+	display: inline;
+}
+
+.playerMid .prograssBar {
+	width: 0px;
+	height: 4px;
+	background: #ffcd2d;
+}
+
+.playerMid #wp_bufBar {
+	width: 0px;
+	height: 4px;
+	background: url(./images/prograssBg.png);
+}
+
+.playerMid #wp_processBtn {
+	width: 10px;
+	height: 10px;
+	background: url(./images/all.png) 0 -128px;
+	position: absolute;
+	top: -3px;
+}
+
+.playerRight {
+	float: left;
+	width: 50px;
+	height: 60px;
+}
+
+#wp_playTime {
+	float: left;
+	margin: 20px 0 0 14px;
+	font-size: 12px;
+	color: #fff;
+	display: inline
+}
+
+#wp_mute {
+	position: relative;
+	width: 20px;
+	height: 16px;
+	background: url(./images/all.png) no-repeat -263px -113px;
+	margin-top: 24px;
+	margin-left: 68px;
+	z-index: 13;
+}
+.xiazai{
+	width: 200px;
+	height: 40px;
+	margin-left: 850px;	
+	background: url(./images/all-2.jpg) no-repeat 0px -50px;
+	display: inline-block;
+}
+.xiazai-icon{
+	width: 18px;
+	height: 18px;
+	margin-left: 20px;
+	margin-top: 10px;
+	background: url(./images/all-2.jpg) no-repeat;
+}
+
+.comments{
+	margin-top: 150px;
+	margin-left: 10%;
+}
+.text{
+	margin-left: 60px;
+	margin-top: -80px;
+	width: 80%;
+}
+.btn{
+	width: 70px;
+	height: 30px;
+	background-color: rgba(255, 166, 0, 0.972);
+	color: white;
+	border: none;
+}
+
+#li {
+	display: block;
+	border-bottom: 1px dashed #ebebeb;
+	margin: 10px 0;
+	padding: 8px 0;
+}
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="icon-1">
+            <img src="./images/icon-1.jpg"/>
+        </div>
+        <div class="nav">
+            <nav>
+                <div>
+                    <div>
+                        <ul>
+                            <li id="active"><a href="#" style="color: orange; text-decoration:none;">首页</a></li>
+                            <li ><a href="#" style="color: white; text-decoration:none;">榜单</a></li>
+                            <li ><a href="#" style="color: white; text-decoration:none;">歌手</a></li>
+                            <li ><a href="#" style="color: white; text-decoration:none;">下载酷我客户端</a></li>
+                            <li ><a href="#" style="color: lightgray; text-decoration:none;font-size: 0.5em;">美女秀</a></li>
+                            <li ><a href="#" style="color: lightgrey; text-decoration:none; font-size: 0.5em;">酷我耳机</a></li>
+                            <li ><a href="#" style="color: lightgray; text-decoration:none; font-size: 0.5em;">VIP</a></li>
+                            <li ><a href="#" style="color: lightgray; text-decoration:none; font-size: 0.5em;">听</a></li>
+                            <li ><a href="#" style="color: white; text-decoration:none; font-size: 0.5em;">更多服务</a></li>
+                            <li ><a href="#" style="color: white; text-decoration:none; font-size: 0.5em;">登陆</a></li>
+                            <img class="search" src="./images/search.png"/>    
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+    </div>
+    <div class="music">
+        <audio autoplay="autoplay" id="mymusic">
+            <source src="./images/逆战.mp3" type="audio/mp3">
+        </audio>
+        <div>
+          <div>
+              <img class="xiyangyang" src="./images/xiyangyang.jpg"/>
+          </div>
+          <div id="player">
+            <div class="musicControll">
+              <div class="play" id="wp_playBtn"></div>
+            </div>
+            <div class="playerMid">
+              <div id="prograssBar">
+                <div id="wp_bufBar">
+                  <div class="prograssBar" id="wp_processBar"></div>
+                  <a href="##" class="schedule_btn" id="wp_processBtn" style="left: 0;"></a>
+                </div>
+              </div>
+            </div>
+            <div class="playerRight">
+              <p id="wp_playTime" class="opacity">00.00</p>
+              <div class="sound" id="wp_mute">
+                <div id="soundBox">
+                  <div class="soundPro">
+                    <div class="soundPro" id="wp_volBar"></div>
+                    <a href="##" id="wp_volBtn"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          <div class="xiazai">
+            <div class="xiazai-icon"></div>
+            <p style="margin-left: 50px;margin-top: -20px;font-size: 0.5em;">免费下载这首歌</p>
+          </div>
+      </div>
+        <div class="title" style="margin-left: 200px;margin-top: -420px;">
+            <p>逆战</p>
+            <p style="font-size: 10px;">歌手：张杰</p>
+        </div>
+        <div id="lyricContainer">
+          <p style="font-size: 10px;margin-left: 200px;">
+            作词 : 裴育</br>
+            作曲 : 曲世聪</br>            
+            在这个风起云涌的战场上</br>
+            暴风少年登场</br>
+            在战胜烈火重重的咆哮声</br>
+            喧闹整个世界</br>
+            硝烟狂飞的讯号</br>
+            机甲时代正来到</br>
+            热血逆流而上</br>
+            战车在发烫</br>      
+            </p>
+        </div>
+        
+
+    </div>
+    <div class="comments">
+      <p>评论</p>
+      <div class="box" id="box">
+        <img src="./images/头像.jpg" style="width: 50px;height: 50px;border-radius: 50%;margin-top: 20px;"/>
+        <p type="text" id="person" value=""></p>
+        <input style="border: 0;" name="" id="louceng">
+        <textarea name="" class="text" id="text" rows="10"></textarea>
+        <input type="button" value="确认发布" id="btn" style="background-color: rgb(255, 174, 0);color: white;"/>
+
+        <h3>全部评论</h3>
+        <hr/>
+      </div>
+    </div>
+</body>
+
+<script>
+  var num = 0;
+  var num1 = 0;
+  var box = document.getElementById("box");
+  var text = document.getElementById("text");
+  var btn = document.getElementById("btn");
+  var person = document.getElementById("person");
+  var ul = document.createElement("ul");
+  ul.style.fontSize = "15px";
+  ul.id = "ul1";
+  
+  document.getElementById("louceng").value=num+"楼";
+  btn.onclick = function() {
+      //非空判断
+      if(text.value==""||text.value==null){
+          alert("内容不允许为空！");
+          return false;
+      }
+
+      //获取时间
+      num = num+1;
+      var datetime = getTime();
+      var time = document.createTextNode(datetime);
+      var li = document.createElement("li");
+      li.id = "li";
+      
+      function getTime(){
+        var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth()+1;
+        var da = date.getDate();
+        var hour = date.getHours()<10 ? "0"+date.getHours() : date.getHours() ;
+        var minute = date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes() ;
+        var second = date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds() ;
+        var week = date.getDay();
+        var time = year+"年"+month+"月"+da+"日 "+hour+":"+minute+":"+second +" "+weeks[week];
+        return time;
+      }
+
+      var data=[
+        text.value,
+        time,
+      ];
+      var datas = JSON.stringify(data);
+      localStorage.setItem("comments",datas);
+      
+
+      //创建头像
+      var img = document.createElement("img");
+      img.src = "./images/头像.jpg"
+      img.style = "width:30px;height:30px;border-radius: 50%;"
+
+      //创建发布文本框
+      var fabu = document.createElement("input");
+      fabu.style = "margin: 0px; width: 50%; height: 30px;";
+      fabu.value = text.value;
+      fabu.disabled="disabled";
+
+
+      //解决兼容问题
+      var ali = ul.getElementsByTagName("li");
+      if(ali.length == 0) {
+          ul.appendChild(li);
+      } else {
+          ul.insertBefore(li, ali[0]);
+      }
+
+      // 添加节点
+      box.appendChild(ul);
+      var lou = document.createTextNode("第"+num+"楼");
+      var persons = document.createTextNode("烟雨江南");
+      // persons.style = "font-size: 20px;"
+      document.getElementById("person").value="";
+      var textnode = document.createTextNode("");
+      document.getElementById("text").value="";   
+      li.appendChild(img);
+      li.appendChild(persons);
+      li.appendChild(document.createElement("br"));      
+      li.appendChild(textnode);
+      li.appendChild(document.createElement("br"));
+      li.appendChild(fabu);
+      li.appendChild(time);
+
+      //楼层展示
+      document.getElementById("louceng").value=num-num1+"楼";
+
+      localStorage.setItem("text", datas);
+  }
+</script>
+<script>
+    var playBtn = document.getElementById("wp_playBtn");
+    var vol = document.getElementById("wp_mute");
+    var playTime = document.getElementById("wp_playTime");
+    var mymusic = document.getElementById("mymusic");
+    var bufBar = document.getElementById("wp_bufBar");
+    var processBtn = document.getElementById("wp_processBtn");
+    var processBar = document.getElementById("wp_processBar");
+    var lyricContainer = document.getElementById('lyricContainer');
+    // var text = document.getElementById('comments').value;
+
+    mymusic.ontimeupdate = function() {
+      var x = document.getElementById("mymusic").duration;
+      var y = document.getElementById("mymusic").currentTime;
+      var long = Math.floor(y / x *100);
+      bufBar.style.width = long + "px";
+      playTime.innerHTML = getTime(mymusic.currentTime);	    
+      processBtn.style.left = bufBar.style.width;
+    }
+
+    //获取时间的函数
+      function getTime() {
+				var m = Math.floor(mymusic.currentTime / 60);
+				var s = Math.floor(mymusic.currentTime - m * 60);
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+				return m + ":" + s;
+      }
+    //静音
+      vol.onclick = function(){
+        if(!mymusic.muted){
+          mymusic.muted = true;
+          vol.style.backgroundPosition="-310px -113px";
+        }else{
+          mymusic.muted = false;
+          vol.style.backgroundPosition="-263px -113px";
+        }
+      }
+      
+    //点击开始播放
+			playBtn.onclick = function() {
+        if(mymusic.paused){
+          mymusic.play();
+          playBtn.style.backgroundPosition="-138px -194px";
+        }else {
+					mymusic.pause();
+					playBtn.style.backgroundPosition="-137px -153px";
+        }
+      }
+
+  
+</script>
+</html>
